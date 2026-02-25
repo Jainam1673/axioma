@@ -1,0 +1,72 @@
+import type { SupabaseClient } from '@supabase/supabase-js';
+import type { Database } from '../database.types';
+export type ExpenseInsert = Database['public']['Tables']['expenses']['Insert'];
+export type ExpenseRow = Database['public']['Tables']['expenses']['Row'];
+export type IncomeInsert = Database['public']['Tables']['income']['Insert'];
+export type IncomeRow = Database['public']['Tables']['income']['Row'];
+export declare function createExpense(supabase: SupabaseClient<Database>, expense: ExpenseInsert): Promise<import("@supabase/supabase-js").PostgrestSingleResponse<{
+    amount: number;
+    category: string;
+    company_id: string;
+    created_at: string;
+    description: string | null;
+    expense_date: string;
+    id: string;
+    linked_month: string | null;
+    payment_method: string | null;
+    receipt_url: string | null;
+    recurring: boolean | null;
+    sub_category: string | null;
+    updated_at: string;
+    vendor_name: string | null;
+}>>;
+export declare function getExpenses(supabase: SupabaseClient<Database>, companyId: string): Promise<import("@supabase/supabase-js").PostgrestSingleResponse<{
+    amount: number;
+    category: string;
+    company_id: string;
+    created_at: string;
+    description: string | null;
+    expense_date: string;
+    id: string;
+    linked_month: string | null;
+    payment_method: string | null;
+    receipt_url: string | null;
+    recurring: boolean | null;
+    sub_category: string | null;
+    updated_at: string;
+    vendor_name: string | null;
+}[]>>;
+export declare function createIncome(supabase: SupabaseClient<Database>, income: IncomeInsert): Promise<import("@supabase/supabase-js").PostgrestSingleResponse<{
+    amount_received: number;
+    client_id: string;
+    company_id: string;
+    created_at: string;
+    id: string;
+    income_date: string;
+    payment_platform: string | null;
+    payment_status: string | null;
+    pending_amount: number;
+    project_name: string;
+    reference_id: string | null;
+    total_deal_value: number;
+    updated_at: string;
+}>>;
+export declare function getIncome(supabase: SupabaseClient<Database>, companyId: string): Promise<import("@supabase/supabase-js").PostgrestSingleResponse<{
+    amount_received: number;
+    client_id: string;
+    company_id: string;
+    created_at: string;
+    id: string;
+    income_date: string;
+    payment_platform: string | null;
+    payment_status: string | null;
+    pending_amount: number;
+    project_name: string;
+    reference_id: string | null;
+    total_deal_value: number;
+    updated_at: string;
+    clients: {
+        client_name: string;
+    };
+}[]>>;
+//# sourceMappingURL=transactions.d.ts.map
